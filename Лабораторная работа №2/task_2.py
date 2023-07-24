@@ -5,7 +5,7 @@ increase = 0.03  # Ежемесячный рост цен
 
 # TODO Рассчитайте подушку безопасности, чтобы протянуть 10 месяцев без долгов
 money_capital = 0  # Подушка безопасности
-for step in range(months):
+for _ in range(months):
     money_capital += spend - salary  # Расчет подушки безопасности
     spend += round(spend * increase, 2)  # Индексация расходов за счет повышения цен (с округлением до копеек)
 money_capital = round(money_capital)
