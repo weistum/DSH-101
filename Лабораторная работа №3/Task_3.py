@@ -2,8 +2,7 @@
 def count_letters(txt):
     dict_letters = {}  # Создание нового словаря для хранения количества букв.
     low_txt = txt.lower()  # Перевод всего текста в нижний регистр.
-    for pos_letter in range(len(low_txt)):
-        letter = low_txt[pos_letter]
+    for i, letter in enumerate(low_txt):
         if letter.isalpha():  # Проверка является ли символ буквой.
             if letter in dict_letters:
                 dict_letters[letter] += 1  # Если буква есть в словаре, увеличить значение счетчика.
@@ -15,11 +14,10 @@ def count_letters(txt):
 # TODO Напишите функцию calculate_frequency
 def calculate_frequency(dict_):
     dict_mode = count_letters(dict_)
-    dict_frequency = dict_mode.copy()  # Копируем словарь с посчитаными буквами для расчета частоты.
     total_quality_letters = sum(dict_mode.values())  # Расчет общего количества букв.
-    for key in dict_frequency.keys():
-        dict_frequency[key] /= total_quality_letters  # Преобразуем количество букв в в коэффициент частотности
-    return dict_frequency
+    for key in dict_mode:
+        dict_mode[key] /= total_quality_letters  # Преобразуем количество букв в в коэффициент частотности
+    return dict_mode
 
 
 main_str = """
